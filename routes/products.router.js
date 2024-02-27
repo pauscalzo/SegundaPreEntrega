@@ -11,8 +11,9 @@ router.get('/products', async (req, res) => {
         const limit = req.query.limit ? parseInt(req.query.limit) : 10;
         const sortOrder = req.query.sort ? req.query.sort : null;
         const category = req.query.category ? req.query.category : null;
+        const status = req.query.status ? req.query.status : null;
 
-        const result = await p.getProducts(page, limit, sortOrder, category);
+        const result = await p.getProducts(page, limit, sortOrder, category, status);
 
         res.render('products', {
             products: result.docs.map(product => product.toObject()), // Convierto a Objeto

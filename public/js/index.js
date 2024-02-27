@@ -67,21 +67,4 @@ socket.on('response', (response) => {
 });    
 
 
-// Evento click al botón "Agregar al Carrito"
-document.querySelectorAll('.addToCartButton').forEach(button => {
-    button.addEventListener('click', async function() {
-        const productId = this.getAttribute('data-productid');
-        try {
-            const response = await fetch(`/cart/${cartId}/${productId}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-            const data = await response.json();
-            console.log(data); 
-        } catch (error) {
-            console.error('Error al agregar el producto al carrito:', error);
-        }
-    });
-});
+
